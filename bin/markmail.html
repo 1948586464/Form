@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Markmail</title>
+	<style type="text/css">
+		* {
+			padding:0;
+			margin:0;
+		}
+		body {
+			background: #034368;
+			background: linear-gradient(90deg,lightblue,blue);
+		}
+		#logo, .message {
+			color: #fff;
+		}
+		#logo {
+			font-size: 100px;
+			text-shadow: 1px 1px 0 rgba(0, 0, 0, .5);
+		}
+		.message {
+			font-size: 40px;
+			margin: 20px 0;
+		}
+		.btn-normal {
+			padding: 8px 20px;
+			border-radius: 5px;
+			background: lightseagreen;
+			color: #fff;
+			text-decoration: none;
+			font-family: "Lucida Sans", sans-serif;
+		}
+		.content-resizer {
+			width:940px;
+			margin: 0 auto;
+		}
+		.img-rounded {
+			border-radius: 5px;
+			margin: 5px auto 20px auto;
+		}
+		.alt-img {
+			padding: 5px;
+			background: #fff;
+			color: #333;
+			display: inline-block;
+			border-radius: 4px;
+			margin-bottom: 20px;
+		}
+		div[data-target] {
+			margin: 0;
+			padding:0;
+			position: relative;
+			overflow:hidden;
+		}
+		div[data-target] > div {
+			text-align:center;
+			position: relative;
+		}
+		div#home {
+			background: 
+			    -webkit-linear-gradient(90deg,lightblue,blue);
+			    linear-gradient(90deg,lightblue,blue);
+		}
+		div#about {
+			background: 
+			    -webkit-linear-gradient(90deg,lightblue,blue);
+			    linear-gradient(90deg,lightblue,blue);
+		}
+		div#examples {
+			background:
+			    -webkit-linear-gradient(90deg,lightblue,blue);
+			    linear-gradient(90deg,lightblue,blue);
+		}
+		div#contact {
+			background:
+			    -webkit-linear-gradient(90deg,lightblue,blue);
+			    linear-gradient(90deg,lightblue,blue);
+		}
+	</style>
+</head>
+<body>
+<div id="single">
+  <div data-target="home" id="home">
+    <div class="content-resizer">
+      <h1 id="logo">Markmail</h1>
+      <h2 class="message">Are you ready to join the markmail?</h2>
+      <p> <a href="#" data-link="about" class="btn-normal">Yes, let's go!</a> </p>
+    </div>
+  </div>
+  <div data-target="about" id="about">
+    <div class="content-resizer">
+      <h2 class="message">Markmail is a social network launched by mark.com, which provides micro blog services. Users can publish messages or upload pictures through webpage, WAP page and mobile client</h2>
+      <a href="#" data-link="home" class="btn-normal">Back</a> <a href="#" data-link="examples" class="btn-normal">Next</a> </div>
+  </div>
+  <div data-target="examples" id="examples">
+    <div class="content-resizer">
+      <h2 class="message">Markmail is one of the best platforms for exclusive information release. In a sense, Markmail is "a never ending press conference".</h2>
+      <a href="#" data-link="about" class="btn-normal">Back</a> <a href="#" data-link="contact" class="btn-normal">Next</a> </div>
+  </div>
+  <div data-target="contact" id="contact">
+    <div class="content-resizer">
+      <h2 class="message">Download it on offical website.</h2>
+      <a href="#" data-link="examples" class="btn-normal">Back</a> <a href="#" data-link="home" class="btn-normal">Back to top</a> </div>
+  </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script src="js/jquery.easing.js"></script>
+<script src="js/single-0.1.0.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("#single").single({
+				speed: 1000
+			});
+			function alignContent() {
+				var windowHeight = $(window).height();
+				$('.content-resizer').each(function(){
+					contentHeight 	= $(this).height();
+					$(this).css('top', (windowHeight/2) - (contentHeight/2));
+				});
+			}
+			alignContent();
+			$(window).bind("resize", function(){  
+				alignContent();  
+			});
+		});
+	</script>
+</body>
+</html>

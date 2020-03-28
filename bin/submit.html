@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>main</title>
+		<style type="text/css">
+			body{
+				background: linear-gradient(90deg,lightblue,blue);
+				text-align: center;
+			}
+			#sub{
+				height: 70px;
+				padding: 0;
+				font-size: 70px;
+				color: white;
+				margin-bottom: 80px;
+			}
+			#sub p{
+				font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+			}
+			#box{
+				position: absolute;
+				left: 38.5%;
+			}
+			#box p{
+				text-align: left;
+			}
+			#btn{
+				position: absolute;
+				top: 90%;
+				left: -8%;
+				width: 300px;
+				height: 32px;
+				margin-bottom: 8px;
+			}
+			#btn p{
+				font-size: 30px;
+				width: 300px;
+				line-height: 32px;
+				border: solid thin white;
+				border-radius: 10px;
+				color: white;
+				text-align: center;
+			}
+			#btn p:hover{
+				background-color: white;
+				color: black;
+			}
+			button{
+				background-color: transparent;
+				border: 0;
+				font-size: 24px;
+			}
+		</style>
+		<!-- <script type="text/javascript">
+			window.onload=function(){
+			alert(window.innerWidth);}
+		</script> -->
+	</head>
+	<body>
+		<div id="sub">
+			<p>Submit</p>
+		</div>
+		<div id="box">
+			<form action="submitContent.html" method="get">
+			<p>
+				<label for="name">
+					Name :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Your name" id="name"/>
+				</label>
+			</p>
+			<p>
+				<label for="password">
+					Password : <input type="password" placeholder="Your password" id="pass"/>
+				</label>
+			</p>
+			<p>
+				<label for="repassword">
+					Password : <input type="password" placeholder="Assure your password" id="repass"/>
+				</label>
+			</p>
+			<p>
+				<label for="gender">
+					Gender :&nbsp;&nbsp;&nbsp;&nbsp;Male <input type="radio" value="male" name="gender"/>
+					         Female <input type="radio" value="female" name="gender"/>
+				</label>
+			</p>
+			<p>
+				<label for="email">
+				    Email :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" placeholder="Your email" id="mail"/>
+				</label>
+			</p>
+			<div id="btn">
+		    <p><button id="button">Submit</button></p>
+		</div>
+		</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var button=document.getElementById("button");
+		button.onclick=function(){
+			var form=document.getElementsByTagName("form")[0];
+			var act=form.getAttribute("action");
+			function checkname(){
+				var name=document.getElementById("name").value;
+				var Regname=/^[a-zA-Z]*_?[a-zA-Z0-9]{7,20}$/g;
+				if(!Regname.test(name)){
+					alert("姓名格式有误,请重新输入")
+					form.setAttribute("action","#");
+				}
+			};
+			checkname();
+			function checkpass(){
+				var pass=document.getElementById("pass").value;
+				var Regpass=/^[a-zA-Z][a-zA-Z0-9]{8,12}$/g;
+				if(!Regpass.test(pass)){
+				    alert("密码格式有误,请重新输入");
+					form.setAttribute("action","#");
+				}
+			};
+			checkpass();
+			function assurepass(){
+				var pass=document.getElementById("pass").value;
+				var repass=document.getElementById("repass").value;
+				if(repass!==pass){
+					alert("两次密码不一致");
+					form.setAttribute("action","#");
+				}
+			};
+			assurepass();
+			function checkmail(){
+				var mail=document.getElementById("mail").value;
+				var Regmail=/^([a-zA-Z_\.\-]+)@([a-zA-Z_\.\-]+)\.([a-zA-Z]{2,4})$/g;
+				if(!Regmail.test(mail)){
+					alert("邮箱格式有误,请重新输入");
+					form.setAttribute("action","#");
+				}
+			};
+			checkmail();
+		}
+	</script>
+</html>
